@@ -78,6 +78,7 @@ public class fifthF extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView =inflater.inflate(R.layout.fragment_first, container, false);
+        System.out.println("haha");
         /*btnSelect = rootView.findViewById(R.id.btnChoose);
         btnUpload = rootView.findViewById(R.id.btnUpload);
         imageView = rootView.findViewById(R.id.imgView);
