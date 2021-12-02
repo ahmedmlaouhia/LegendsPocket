@@ -74,6 +74,10 @@ public class signup extends AppCompatActivity {
                             }
                         }
                     });
+
+            else
+                Toast.makeText(signup.this, "please provide all fields.",
+                        Toast.LENGTH_SHORT).show();
         });
         login.setOnClickListener(v -> {
             startActivity(new Intent(signup.this,Login.class));
