@@ -67,21 +67,9 @@ public class firstF extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    private FirebaseAuth  mAuth;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mAuth=FirebaseAuth.getInstance();
         View rootView=inflater.inflate(R.layout.fragment_first, container, false);
-        TextView user=rootView.findViewById(R.id.email);
-        SharedPreferences ss = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-        String username = ss.getString("username","username");
-        user.setText(username);
-        Button signout=rootView.findViewById(R.id.signout);
-        signout.setOnClickListener(v -> {
-            mAuth.signOut();
-            startActivity(new Intent(getActivity(), Login.class));
-            getActivity().finish();
-        });
         return rootView;
     }
 
