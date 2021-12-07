@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -73,6 +77,7 @@ public class fifthF extends Fragment {
     private final int PICK_IMAGE_REQUEST = 22;
     FirebaseStorage storage;
     StorageReference storageReference;
+    private FirebaseAuth  mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -97,6 +102,18 @@ public class fifthF extends Fragment {
                 uploadImage();
             }
         });*/
+
+        mAuth= FirebaseAuth.getInstance();
+        TextView user=rootView.findViewById(R.id.email);
+        SharedPreferences ss = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+        String username = ss.getString("username","username");
+        user.setText(username);
+        Button signout=rootView.findViewById(R.id.signout);
+        signout.setOnClickListener(v -> {
+            mAuth.signOut();
+            startActivity(new Intent(getActivity(), Login.class));
+            getActivity().finish();
+        });
         return rootView;
     }
 
