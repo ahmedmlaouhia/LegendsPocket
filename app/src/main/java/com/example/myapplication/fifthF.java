@@ -73,6 +73,7 @@ public class fifthF extends Fragment {
 
     private Button btnSelect, btnUpload;
     private ImageView imageView;
+    private int x;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 22;
     FirebaseStorage storage;
