@@ -1,28 +1,19 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,42 +61,14 @@ public class fifthF extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
-    private Button btnSelect, btnUpload;
-    private ImageView imageView;
-    private int x;
-    private Uri filePath;
-    private final int PICK_IMAGE_REQUEST = 22;
-    FirebaseStorage storage;
-    StorageReference storageReference;
     private FirebaseAuth  mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView =inflater.inflate(R.layout.fragment_first, container, false);
-        /*btnSelect = rootView.findViewById(R.id.btnChoose);
-        btnUpload = rootView.findViewById(R.id.btnUpload);
-        imageView = rootView.findViewById(R.id.imgView);
-        storage = FirebaseStorage.getInstance("gs://androidprojectfsb.appspot.com");
-        storageReference = storage.getReference();
-        btnSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                SelectImage();
-            }
-        });
-        btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                uploadImage();
-            }
-        });*/
-
         mAuth= FirebaseAuth.getInstance();
-        TextView user=rootView.findViewById(R.id.email);
+        TextView user=rootView.findViewById(R.id.username);
         SharedPreferences ss = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
         String username = ss.getString("username","username");
         user.setText(username);
@@ -117,38 +80,4 @@ public class fifthF extends Fragment {
         });
         return rootView;
     }
-
-    /*private void SelectImage()
-    {
-
-        // Defining Implicit Intent to mobile gallery
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(
-                Intent.createChooser(
-                        intent,
-                        "Select Image from here..."),
-                PICK_IMAGE_REQUEST);
-    }
-
-    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                    }
-                }
-            });
-
-    public void openSomeActivityForResult() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        someActivityResultLauncher.launch(intent.createChooser(intent,
-                "Select Image from here..."),PICK_IMAGE_REQUEST);
-    }*/
-
 }
