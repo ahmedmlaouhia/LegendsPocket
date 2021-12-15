@@ -78,14 +78,12 @@ public class firstF extends Fragment {
         View rootView=inflater.inflate(R.layout.fragment_first, container, false);
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://androidprojectfsb-default-rtdb.europe-west1.firebasedatabase.app");
         DatabaseReference myRef = database.getReference("products");
-
         rv=rootView.findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         FirebaseRecyclerOptions<Product> options
                 = new FirebaseRecyclerOptions.Builder<Product>()
                 .setQuery(myRef, Product.class)
                 .build();
-
         adapter= new ProductAdapter(options);
         rv.setAdapter(adapter);
         return rootView;
@@ -102,5 +100,4 @@ public class firstF extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
-
 }

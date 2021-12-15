@@ -9,7 +9,7 @@
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_fifth.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_first.xml" value="0.264" />
-        <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_fourth.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_fourth.xml" value="0.26953125" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_sigup.xml" value="0.25416666666666665" />
@@ -17,7 +17,8 @@
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/loading_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/navigation_header.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/product_card.xml" value="0.264" />
+        <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/product_card.xml" value="0.33495145631067963" />
+        <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/product_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/recyclerview_row.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/BOHMID/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/signup.xml" value="0.264" />
       </map>

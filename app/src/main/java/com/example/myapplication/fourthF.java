@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
  * create an instance of this fragment.
  */
 public class fourthF extends Fragment {
+    RecyclerView rv;
+    ProductAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,8 +67,31 @@ public class fourthF extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView =inflater.inflate(R.layout.fragment_fourth, container, false);
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://androidprojectfsb-default-rtdb.europe-west1.firebasedatabase.app");
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        String user = mAuth.getCurrentUser().getUid();
+        DatabaseReference myRef = database.getReference("carts").child(user).child("products");
+        rv=rootView.findViewById(R.id.recyclerView);
+        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        FirebaseRecyclerOptions<Product> options
+                = new FirebaseRecyclerOptions.Builder<Product>()
+                .setQuery(myRef, Product.class)
+                .build();
+        adapter= new ProductAdapter(options);
+        rv.setAdapter(adapter);
         return rootView;
+    }
+
+    @Override public void onStart()
+    {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override public void onStop()
+    {
+        super.onStop();
+        adapter.stopListening();
     }
 
 }

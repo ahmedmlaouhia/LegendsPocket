@@ -9,11 +9,10 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         android:contentDescription="product image"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"/>
 
@@ -25,58 +24,46 @@
         android:layout_marginTop="20dp"
         android:text="name"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
         android:text="price"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="#FFD700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/name"
-        app:layout_constraintEnd_toStartOf="@+id/dollar"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintStart_toStartOf="@+id/name"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/dollar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="10dp"
         android:text="$"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="#FFD700"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@id/price"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/price"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="320dp"
+    <Button
+        android:id="@+id/remove"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="description"
-        android:textAppearance="?attr/textAppearanceBody2"
-        android:textColor="?android:attr/textColorSecondary"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Remove"
+        android:textColor="#EA581E"
+        app:icon="@drawable/trash"
+        app:iconSize="30dp"
+        app:iconTint="#EA581E"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name"
-        tools:ignore="MissingConstraints"
-        android:padding="10dp"/>
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/add"
-        android:layout_width="281dp"
-        android:layout_height="40dp"
-        android:text="add to cart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/desc"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
