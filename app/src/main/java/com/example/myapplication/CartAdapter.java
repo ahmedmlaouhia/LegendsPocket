@@ -21,9 +21,9 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProductAdapter extends FirebaseRecyclerAdapter<Product,ProductAdapter.MyAdapter> {
+public class CartAdapter extends FirebaseRecyclerAdapter<Product,CartAdapter.MyAdapter> {
 
-    public ProductAdapter(@NonNull FirebaseRecyclerOptions<Product> options){
+    public CartAdapter(@NonNull FirebaseRecyclerOptions<Product> options){
         super(options);
     }
 
@@ -31,7 +31,7 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Product,ProductAdapt
     @Override
     public MyAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(parent.getContext());
-        View view =inflater.inflate(R.layout.product_card,parent,false);
+        View view =inflater.inflate(R.layout.product_cart,parent,false);
         return new MyAdapter(view);
     }
 
@@ -39,31 +39,27 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Product,ProductAdapt
     public void onBindViewHolder(@NonNull MyAdapter holder, int position,@NonNull Product model) {
         holder.name.setText(model.getName());
         holder.price.setText(String.valueOf(model.getPrice()));
-        holder.description.setText(model.getDescription());
         Picasso.get().load(model.getImageUrl()).into(holder.image);
-        holder.add.setOnClickListener(v->{
+        holder.remove.setOnClickListener(v->{
             FirebaseAuth mAuth = FirebaseAuth.getInstance();
             String user = mAuth.getCurrentUser().getUid();
             FirebaseDatabase database = FirebaseDatabase.getInstance("https://androidprojectfsb-default-rtdb.europe-west1.firebasedatabase.app");
             DatabaseReference myRef = database.getReference("carts").child(user);
             myRef.child("products").child(model.getId()).setValue(model);
-
         });
     }
 
     public class MyAdapter extends RecyclerView.ViewHolder {
         public ImageView image;
-        public TextView name,price,description;
-        public Button add;
+        public TextView name,price;
+        public Button remove;
         public MyAdapter(@NonNull View itemView) {
             super(itemView);
             this.image = itemView.findViewById(R.id.image);
             this.name = itemView.findViewById(R.id.name);
             this.price = itemView.findViewById(R.id.price);
-            this.add=itemView.findViewById(R.id.add);
-            this.description= itemView.findViewById(R.id.desc);
+            this.remove=itemView.findViewById(R.id.remove);
             this.image.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-
         }
     }
 }

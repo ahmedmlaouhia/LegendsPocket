@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class fourthF extends Fragment {
     RecyclerView rv;
-    ProductAdapter adapter;
+    CartAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,7 +77,7 @@ public class fourthF extends Fragment {
                 = new FirebaseRecyclerOptions.Builder<Product>()
                 .setQuery(myRef, Product.class)
                 .build();
-        adapter= new ProductAdapter(options);
+        adapter= new CartAdapter(options);
         rv.setAdapter(adapter);
         return rootView;
     }
