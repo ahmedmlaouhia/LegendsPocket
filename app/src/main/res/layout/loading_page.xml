@@ -47,7 +47,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="MasterBOHMID"
+        android:text="MasterBohmid X Hakkou"
         android:textColor="#00FFE2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
