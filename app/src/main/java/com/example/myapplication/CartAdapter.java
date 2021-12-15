@@ -45,7 +45,7 @@ public class CartAdapter extends FirebaseRecyclerAdapter<Product,CartAdapter.MyA
             String user = mAuth.getCurrentUser().getUid();
             FirebaseDatabase database = FirebaseDatabase.getInstance("https://androidprojectfsb-default-rtdb.europe-west1.firebasedatabase.app");
             DatabaseReference myRef = database.getReference("carts").child(user);
-            myRef.child("products").child(model.getId()).setValue(model);
+            myRef.child("products").child(model.getId()).removeValue();
         });
     }
 
