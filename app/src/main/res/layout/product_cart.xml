@@ -57,9 +57,8 @@
     <Button
         android:id="@+id/remove"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:text="Remove"
         android:textColor="#FF1E00"
         app:icon="@drawable/trash"
         app:iconSize="20dp"

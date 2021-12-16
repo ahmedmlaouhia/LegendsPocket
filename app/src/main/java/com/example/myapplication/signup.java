@@ -44,7 +44,7 @@ public class signup extends AppCompatActivity {
             String _password=password.getText().toString().trim();
             String _username=username.getText().toString().trim();
             String _phone=phone.getText().toString().trim();
-            if (!TextUtils.isEmpty(_email) && !TextUtils.isEmpty(_password))
+            if (!TextUtils.isEmpty(_email) && !TextUtils.isEmpty(_password) && !TextUtils.isEmpty(_phone) && !TextUtils.isEmpty(_username))
             mAuth.createUserWithEmailAndPassword(_email, _password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override

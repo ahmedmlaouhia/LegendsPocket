@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class fourthF extends Fragment {
     RecyclerView rv;
     CartAdapter adapter;
+    TextView total;
+    Button pay;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,9 +72,12 @@ public class fourthF extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView =inflater.inflate(R.layout.fragment_fourth, container, false);
+        total=rootView.findViewById(R.id.total);
+        pay=rootView.findViewById(R.id.pay);
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://androidprojectfsb-default-rtdb.europe-west1.firebasedatabase.app");
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String user = mAuth.getCurrentUser().getUid();
+        DatabaseReference cart = database.getReference("carts");
         DatabaseReference myRef = database.getReference("carts").child(user).child("products");
         rv=rootView.findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -79,6 +87,12 @@ public class fourthF extends Fragment {
                 .build();
         adapter= new CartAdapter(options);
         rv.setAdapter(adapter);
+        pay.setOnClickListener(v->{
+            cart.removeValue();
+            total.setText("0");
+            Toast.makeText(this.getContext(), "Paid",
+                    Toast.LENGTH_SHORT).show();
+        });
         return rootView;
     }
 
